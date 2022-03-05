@@ -6,10 +6,10 @@ IB = '\033[38;5;12m'
 bold_underline = '\033[4;1m'
 
 # Título
-print(f'{IR}-=-=-=-=-=', f'{IB}MÉDIA DE NOTAS', f'{IR}=-=-=-=-=-{reset}')
+print(f'{IR}-=-=-=-={reset}', 'MÉDIA DE NOTAS', f'{IR}=-=-=-=-{reset}')
 
 # Pergunta o nome da pessoa e quantas provas quer analisar
-nome = input('Digite o seu nome: ').title().strip()
+nome = input('\nDigite o seu nome: ').title().strip()
 provas = int(input('Total de provas para serem analizadas: ').strip())
 
 # Se for inserido um valor maior que dois, ele analisará os dados
@@ -19,28 +19,37 @@ while True:
         provas = int(input('Total de provas para serem analizadas: ').strip())
     else:
         break
+print('')
 
-# for c in range(1, provas + 1):
+# Declarando as variáveis
+aluno = {'Nome': nome}
+notas = []
+
+# For para inserir as notas
+for c in range(1, provas + 1):
+    nota = float(input(f'Digite a {c}ª nota: ').strip())
+    notas.append(nota)
+    del nota
     
+# Colocando os dados em um dicionário
+aluno['Notas'] = notas[:]
+aluno['Média'] = sum(aluno['Notas']) / len(aluno['Notas'])
+
+if aluno['Média'] < 5:
+    aluno['Situação'] = f'{IR}Reprovado{reset}'
+elif 5 <= aluno['Média'] < 7:
+    aluno['Situação'] = f'{IY}Recuperação{reset}'
+else:
+    aluno['Situação'] = f'{IB}Aprovado{reset}'
+
+print('\n----------------------\n')
+
+for k, v in aluno.items():
+    if v == aluno['Média']:
+        print(f'{k}: {v:.2f}')
+    else:
+        print(f'{k}: {v}')
     
-        
+print('\n----------------------\n')
 
-
-# print(f'\n{IR}VALOR INVÁLIDO! Digite um valor acima de 2.')
-
-# print('')
-#     notas = 0
-
-#     for c in range(1, provas + 1):
-#         nota = float(input(f'{IR}Digite a {c}° nota: {reset}'))
-#         notas += nota
-
-#     media = notas / provas
-#     print(f'\n{nome}, a sua média foi de {bold_underline}{media:.2f}{reset}')
-
-#     if media >= 7:
-#         print(f'{IB}Aprovado!{reset}')
-#     elif 7 > media >= 5:
-#         print(f'{yellow}Recuperação!{reset}')
-#     else:
-#         print(f'{IR}Reprovado!{reset}')
+print(f'--- (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Fim da execução ✧ﾟ･: *ヽ(◕ヮ◕ヽ) ---')
