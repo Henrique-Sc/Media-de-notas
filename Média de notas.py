@@ -20,7 +20,7 @@ while True:
     else:
         break
 
-for c in range(1, provas + 1):
+# for c in range(1, provas + 1):
     
     
         
