@@ -42,14 +42,17 @@ elif 5 <= aluno['Média'] < 7:
 else:
     aluno['Situação'] = f'{IB}Aprovado{reset}'
 
+# Linha para design
 print('\n----------------------\n')
 
+# Mostrando os dados
 for k, v in aluno.items():
     if v == aluno['Média']:
         print(f'{k}: {v:.2f}')
     else:
         print(f'{k}: {v}')
-    
+        
+# Linha para design
 print('\n----------------------\n')
 
 print(f'--- (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ Fim da execução ✧ﾟ･: *ヽ(◕ヮ◕ヽ) ---')
