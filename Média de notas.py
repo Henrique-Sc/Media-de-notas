@@ -29,7 +29,6 @@ notas = []
 for c in range(1, provas + 1):
     nota = float(input(f'Digite a {c}ª nota: ').strip())
     notas.append(nota)
-    del nota
     
 # Colocando os dados em um dicionário
 aluno['Notas'] = notas[:]
