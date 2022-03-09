@@ -34,6 +34,9 @@ for c in range(1, provas + 1):
 aluno['Notas'] = notas[:]
 aluno['Média'] = sum(aluno['Notas']) / len(aluno['Notas'])
 
+# Formatando a média para ficar com duas casas decimais
+aluno['Média'] = float(f'{aluno["Média"]:.2f}')
+
 if aluno['Média'] < 5:
     aluno['Situação'] = f'{IR}Reprovado{reset}'
 elif 5 <= aluno['Média'] < 7:
